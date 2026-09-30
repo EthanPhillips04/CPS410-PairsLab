@@ -14,12 +14,15 @@ public class Main {
 		while((num % 2) != 1) {
 			num = rand.nextInt(1, 1001);
 		}
+		int numberOfGuesses = 0;
 		while(guess != num) { //run while the guess input does not equal the generated number
 			//run a try statement to catch non number inputs
 			try {
+				numberOfGuesses++;
 				System.out.print("You're guess: ");
 				guess = scnr.nextInt();
 			} catch (Exception e) {
+				numberOfGuesses--;
 				System.out.println("\nThat's not a number. Try again: ");
 				continue;
 			}
@@ -31,7 +34,8 @@ public class Main {
 			}
 		}
 		System.out.println("You guessed it! The number was " + num);
+		System.out.println("It took you " + numberOfGuesses + " times to guess. Lock in.");
 		System.out.println("Thanks for playing!");
 	}
-
+	
 }
