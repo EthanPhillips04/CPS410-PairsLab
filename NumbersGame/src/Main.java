@@ -16,14 +16,27 @@ public class Main {
             return;
         }
 
-        
-
-
-
 		int num = 0;
 		while((num % 2) != 1) {
 			num = rand.nextInt(1, 1001);
 		}
+
+        while(guess != num) {
+
+            if(guess < num) {
+                System.out.println("The number is higher.");
+            } else {
+                System.out.println("The number is lower.");
+            }
+
+            System.out.println("Sorry, you didn't guess the number. Try again:");
+            guess = scnr.nextInt();
+        }
+
+        if(guess == num) {
+            System.out.println("You guessed the number! The number was " + num);
+        }
+
 	}
 
 }
