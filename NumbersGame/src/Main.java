@@ -21,8 +21,8 @@ public class Main {
 
 
 		int num = 0;
-		while(((num % 2) + 1) == 0) {
-			num = rand.nextInt(1, 1000);
+		while((num % 2) != 1) {
+			num = rand.nextInt(1, 1001);
 		}
 	}
 
