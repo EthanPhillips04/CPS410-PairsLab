@@ -4,29 +4,36 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 
-		Scanner scnr = new Scanner(System.in);
+		Scanner scnr;
 		Random rand = new Random();
 
 		System.out.println("Welcome to the Guessing Game! Guess a number between 1 and 1000!");
+		
+		//local variables
 		int guess = -1;
 		int num = 0;
+		
 		//generate a random number between 1 and 1000
 		while((num % 2) != 1) {
 			num = rand.nextInt(1, 1001);
 		}
 		int numberOfGuesses = 0;
 		while(guess != num) { //run while the guess input does not equal the generated number
+			scnr = new Scanner(System.in);
 			//run a try statement to catch non number inputs
 			try {
-				numberOfGuesses++;
+				numberOfGuesses++; //track the number of times the user has guessed
 				System.out.print("You're guess: ");
 				guess = scnr.nextInt();
 			} catch (Exception e) {
+				//if the input isn't a number, retract the guess and continue to the next iteration
 				numberOfGuesses--;
-				System.out.println("\nThat's not a number. Try again: ");
+				guess = -1;
+				System.out.println("That's not a number. Try again.");
 				continue;
 			}
-			//print if the guess is higher or lower than the guess
+			
+			//print if the guess is higher or lower than the generated number
 			if (guess > num){
 				System.out.println("The number is lower.");
 			} else {
